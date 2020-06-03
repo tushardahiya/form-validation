@@ -46,8 +46,16 @@ class App extends Component {
         college: '',
         city: '',
         state: ''
-      }
+      },
+      value: "",
+      qualification: ''
     }
+  }
+
+  handleRadioChange(event) {
+    this.setState(
+      { value: event.target.value }
+    )
   }
 
   handleSubmit = (event) => {
@@ -64,6 +72,8 @@ class App extends Component {
       College : ${this.state.college}
       City : ${this.state.city}
       State : ${this.state.state}
+      Sex : ${this.state.value}
+      Qualification : ${this.state.qualification}
       `)
     }
     else {
@@ -185,6 +195,16 @@ class App extends Component {
             )}
           </div>
 
+          <div className="qualification">
+            <label htmlFor="qualification :" >Qualifications</label>
+            <select name="qualification" onChange={this.handleChange}>
+              <option value="under graduate">Under Graduate</option>
+              <option value="graduate">Graduate</option>
+              <option value="post graduate">Post Graduate</option>
+              <option value="doctorate">Doctorate</option>
+            </select>
+          </div>
+
 
           <div className="age">
             <label htmlFor="age">Your Age</label>
@@ -198,6 +218,23 @@ class App extends Component {
             {formErrors.age.length > 0 && (
               <span className="errorMessage" > {formErrors.age} </span>
             )}
+          </div>
+
+          <div className="gender">
+            <label>gender:{this.state.value}</label>
+            <input
+              type="radio"
+              name="gender"
+              value="male"
+              checked={this.state.value === "male"}
+              onChange={this.handleRadioChange.bind(this)}
+            />
+            <input
+              type="radio"
+              name="gender"
+              value="female"
+              checked={this.state.value === "female"}
+              onChange={this.handleRadioChange.bind(this)} />
           </div>
 
 
