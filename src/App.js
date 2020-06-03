@@ -151,7 +151,9 @@ class App extends Component {
 
           <div className="firstName">
             <label htmlFor="firstName">First Name</label>
-            <input type="text"
+            <input
+              type="text"
+              maxLength="15"
               className={formErrors.firstName.length > 0 ? "error" : null}
               placeholder="First Name"
               noValidate
@@ -167,7 +169,9 @@ class App extends Component {
 
           <div className="lastName">
             <label htmlFor="lastName">Last Name</label>
-            <input type="text"
+            <input
+              type="text"
+              maxLength="15"
               className={formErrors.lastName.length > 0 ? "error" : null}
               placeholder="Last Name"
               noValidate
@@ -183,7 +187,9 @@ class App extends Component {
 
           <div className="email">
             <label htmlFor="email">Email</label>
-            <input type="email"
+            <input
+              type="email"
+              maxLength="20"
               className={formErrors.email.length > 0 ? "error" : null}
               placeholder="Email"
               noValidate
@@ -208,7 +214,8 @@ class App extends Component {
 
           <div className="age">
             <label htmlFor="age">Your Age</label>
-            <input type="text"
+            <input
+              type="number"
               className={formErrors.age.length > 0 ? "error" : null}
               placeholder="Age"
               noValidate
@@ -240,7 +247,7 @@ class App extends Component {
 
           <div className="mobileno">
             <label htmlFor="mobileno">Mobile No.</label>
-            <input type="text"
+            <input type="number"
               className={formErrors.mobileno.length > 0 ? "error" : null}
               placeholder="Mobile No."
               noValidate
@@ -255,7 +262,10 @@ class App extends Component {
 
           <div className="college">
             <label htmlFor="college">Your College</label>
-            <input type="text"
+            <br />
+            <input
+              type="text"
+              maxLength="20"
               className={formErrors.college.length > 0 ? "error" : null}
               placeholder="College"
               noValidate
@@ -270,7 +280,9 @@ class App extends Component {
 
           <div className="city">
             <label htmlFor="city">Your City</label>
-            <input type="text"
+            <input
+              type="text"
+              maxLength="15"
               className={formErrors.city.length > 0 ? "error" : null}
               placeholder="city"
               noValidate
@@ -284,7 +296,9 @@ class App extends Component {
 
           <div className="state">
             <label htmlFor="state">Your State</label>
-            <input type="text"
+            <input
+              type="text"
+              maxLength="15"
               className={formErrors.state.length > 0 ? "error" : null}
               placeholder="state"
               noValidate
