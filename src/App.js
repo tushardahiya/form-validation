@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import swal from 'sweetalert';
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
@@ -61,6 +62,8 @@ class App extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
+
+
     if (formValid(this.state)) {
       console.log(`
       SUBMITTING
@@ -75,6 +78,19 @@ class App extends Component {
       Sex : ${this.state.value}
       Qualification : ${this.state.qualification}
       `)
+
+
+      swal(`SUBMITTING
+      First Name : ${this.state.firstName}
+      Last Name : ${this.state.lastName}
+      Email : ${this.state.email}
+      Age : ${this.state.age}
+      Mobileno : ${this.state.mobileno}
+      College : ${this.state.college}
+      City : ${this.state.city}
+      State : ${this.state.state}
+      Sex : ${this.state.value}
+      Qualification : ${this.state.qualification}`)
     }
     else {
       console.error('FORM INVALID - DISPLAY ERROR MESSAGE');
