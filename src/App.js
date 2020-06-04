@@ -73,7 +73,7 @@ class App extends Component {
       College : ${this.state.college}
       City : ${this.state.city}
       State : ${this.state.state}
-      Sex : ${this.state.value}
+      Sex : ${this.state.gender}
       Qualification : ${this.state.qualification}
       `)
 
@@ -90,7 +90,7 @@ class App extends Component {
         College : ${this.state.college}
         City : ${this.state.city}
         State : ${this.state.state}
-        Sex : ${this.state.value}
+        Sex : ${this.state.gender}
         Qualification : ${this.state.qualification}`
       }
       )
