@@ -38,6 +38,8 @@ class App extends Component {
       college: null,
       city: null,
       state: null,
+      gender: null,
+      qualification: null,
       formErrors: {
         firstName: '',
         lastName: '',
@@ -46,18 +48,14 @@ class App extends Component {
         mobileno: '',
         college: '',
         city: '',
-        state: ''
-      },
-      value: "",
-      qualification: ''
+        state: '',
+        gender: '',
+        qualification: ''
+      }
     }
   }
 
-  handleRadioChange(event) {
-    this.setState(
-      { value: event.target.value }
-    )
-  }
+
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -80,20 +78,25 @@ class App extends Component {
       `)
 
 
-      swal(`SUBMITTING
-      First Name : ${this.state.firstName}
-      Last Name : ${this.state.lastName}
-      Email : ${this.state.email}
-      Age : ${this.state.age}
-      Mobileno : ${this.state.mobileno}
-      College : ${this.state.college}
-      City : ${this.state.city}
-      State : ${this.state.state}
-      Sex : ${this.state.value}
-      Qualification : ${this.state.qualification}`)
+      swal({
+        title: "SUBMITTED",
+        icon: "success",
+        text: `
+        First Name : ${this.state.firstName}
+        Last Name : ${this.state.lastName}
+        Email : ${this.state.email}
+        Age : ${this.state.age}
+        Mobileno : ${this.state.mobileno}
+        College : ${this.state.college}
+        City : ${this.state.city}
+        State : ${this.state.state}
+        Sex : ${this.state.value}
+        Qualification : ${this.state.qualification}`
+      }
+      )
     }
     else {
-      console.error('FORM INVALID - DISPLAY ERROR MESSAGE');
+      console.error("FORM INVALID - OR SOMETHING'S EMPTY");
     }
   }
 
@@ -144,7 +147,15 @@ class App extends Component {
         formErrors.state =
           value.length < 2 ? 'minimum two characters required' : '';
         break;
+      case 'qualification':
+        formErrors.qualification =
+          value.length < 1 ? 'you must choose something' : '';
+        break;
 
+      case 'gender':
+        formErrors.gender =
+          value.length < 1 ? 'you must choose something' : '';
+        break;
 
       default:
         break;
@@ -205,7 +216,7 @@ class App extends Component {
             <label htmlFor="email">Email</label>
             <input
               type="email"
-              maxLength="20"
+              maxLength="40"
               className={formErrors.email.length > 0 ? "error" : null}
               placeholder="Email"
               noValidate
@@ -219,7 +230,7 @@ class App extends Component {
 
           <div className="qualification">
             <label htmlFor="qualification :" >Qualifications</label>
-            <select name="qualification" onChange={this.handleChange}>
+            <select required name="qualification" onChange={this.handleChange}>
               <option value="under graduate">Under Graduate</option>
               <option value="graduate">Graduate</option>
               <option value="post graduate">Post Graduate</option>
@@ -244,20 +255,12 @@ class App extends Component {
           </div>
 
           <div className="gender">
-            <label>gender:{this.state.value}</label>
-            <input
-              type="radio"
-              name="gender"
-              value="male"
-              checked={this.state.value === "male"}
-              onChange={this.handleRadioChange.bind(this)}
-            />
-            <input
-              type="radio"
-              name="gender"
-              value="female"
-              checked={this.state.value === "female"}
-              onChange={this.handleRadioChange.bind(this)} />
+            <label htmlFor="gender :" >Sex</label>
+            <select required name="gender" onChange={this.handleChange}>
+              <option value="default">Select Sex</option>
+              <option value="male">male</option>
+              <option value="female">Female</option>
+            </select>
           </div>
 
 
